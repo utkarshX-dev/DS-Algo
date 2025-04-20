@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+class Graph {
+    int V;
+    vector<vector<int>> adjMatrix;
+
+public:
+    Graph(int v) {
+        V = v;
+        adjMatrix.resize(V, vector<int>(V, INT_MAX));  // For weighted graphs: INT_MAX = no connection
+    }
+
+    void addEdge(int s, int d, int weight = 1) {
+        adjMatrix[s][d] = weight;
+        adjMatrix[d][s] = weight; // If undirected
+    }
+
+    void printGraph() {
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if (adjMatrix[i][j] == INT_MAX)
+                    cout << "INF ";
+                else
+                    cout << adjMatrix[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Graph g(4);
+    g.addEdge(0, 1, 2);
+    g.addEdge(0, 2, 4);
+    g.addEdge(1, 2, 1);
+    g.addEdge(2, 3, 7);
+
+    g.printGraph();
+    return 0;
+}
