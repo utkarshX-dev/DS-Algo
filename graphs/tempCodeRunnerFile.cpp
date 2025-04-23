@@ -1,1 +1,1 @@
- // if (currDistance > dist[u]) continue;
+g.addEdge(3, 1, -6);
