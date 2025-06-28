@@ -1,1 +1,1 @@
-g.addEdge(3, 1, -6);
+ds.unionBySize(3, 7);
