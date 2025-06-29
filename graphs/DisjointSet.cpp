@@ -38,11 +38,10 @@ public:
         }
         else if(rank[ult_v_Parent] < rank[ult_u_Parent]){
             parent[ult_v_Parent] = ult_u_Parent;
-            rank[ult_u_Parent]++;
         }
         else{
-            parent[ult_u_Parent] = ult_v_Parent;
-            rank[ult_v_Parent]++;
+            parent[ult_u_Parent] = ult_v_Parent; //case of no parent,parent = node same rank
+            rank[ult_v_Parent]++; 
         }
     }
 
@@ -59,7 +58,6 @@ public:
             size[ult_u_Parent] += size[ult_v_Parent];
         }
     }
-
 
 };
 
