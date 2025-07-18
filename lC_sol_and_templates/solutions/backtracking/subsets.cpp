@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //backtracking approach
-class Solution {
+class Solution1 {
 public:
     vector<vector<int>>res;
     void f(int i, vector<int>& nums, vector<int>& temp) {
@@ -23,7 +23,7 @@ public:
     }
 };
 //iterative approach
-class Solution {
+class Solution2 {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
         int n = nums.size();
@@ -37,6 +37,27 @@ public:
                 temp.push_back(val);
                 res.push_back(temp);
             }
+        }
+        return res;
+    }
+};
+//using bit manipulation
+//🔥Wowwwwwwwwwwwwwwwwwww........
+class Solution3 {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>>res;
+        int n = nums.size();
+        int possibleSubsets = 1 << n;
+        for(int i = 0; i < possibleSubsets; i++){
+            vector<int>temp = {};
+            int idx = 0;
+            for(int idx = 0; idx < n; idx++){
+                if((i >> idx) & 1){
+                    temp.push_back(nums[idx]);
+                }
+            }
+            res.push_back(temp);
         }
         return res;
     }
