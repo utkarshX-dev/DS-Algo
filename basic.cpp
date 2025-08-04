@@ -2,24 +2,22 @@
 #include <queue>
 using namespace std;
 int main(){
-    priority_queue<int>pq;
-    pq.push(45);
-    pq.push(46);
-    pq.push(12);
-    pq.push(10);
-    cout << pq.top() << endl; //46
-    pq.pop();
-    cout << pq.top() << endl; //45
-    pq.pop();
-    cout << pq.top() << endl; //45
-    pq.pop();
-    cout << pq.top() << endl; //45
-    pq.pop();
-    pq.pop();
-    pq.pop();
-    pq.pop();
-    cout << "Size of priority queue : "<<  pq.size() << endl;
-    cout << "size of priority quueue : " << pq.top() << endl;
-    cout << pq.top() << endl; //45
+    int n = 3;
+    vector<vector<char>>res(n);
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(j + i >= n - 1){
+                res[i].push_back('*');
+            }else{
+                res[i].push_back(' ');
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < res[i].size(); j++){
+            cout << res[i][j];
+        }
+        cout << endl;
+    }
     return 0;
 }
