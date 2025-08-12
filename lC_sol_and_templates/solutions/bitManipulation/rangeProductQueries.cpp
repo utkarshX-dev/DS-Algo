@@ -29,7 +29,9 @@ public:
         
         // print(arr);
         // prefix(arr);
+        
         // print(arr);
+        
         int size = queries.size();
         vector<int>res(size, 1);
         for(int i = 0; i < size; i++){
